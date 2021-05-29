@@ -61,6 +61,9 @@ class SimpleCameraModel: ObservableObject {
                     return Indentification(label: label, certainty: confidence)
                 })
                 self.modelState = .resultReturned(self.cameraService.photo!.image!, scanedResult)
+                if let mainLabel = scanedResult.identifications.first?.label {
+                    SpeechService().speakText(mainLabel)
+                }
             }
         }.store(in: &bag)
 
