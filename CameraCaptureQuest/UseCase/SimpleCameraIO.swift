@@ -1,5 +1,5 @@
 import Foundation
 
 enum SimpleCameraViewIntent {
-    case takePicture
+    case pressedButton
 }

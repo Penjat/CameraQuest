@@ -49,7 +49,7 @@ struct CameraView: View {
     
     var cameraImage: some View {
         switch viewModel.modelState {
-        case .processingPicture(let image):
+        case .processingPicture(let image), .resultReturned(let image, _):
             return AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill))
         default:
             return AnyView(CameraPreview(session: viewModel.session))
@@ -65,7 +65,12 @@ struct CameraView: View {
     }
     
     var responseText: String {
-        return ""
+        switch viewModel.modelState {
+        case .resultReturned(_, let resultText):
+            return resultText
+        default:
+            return ""
+        }
     }
     
     var buttonText: String {
@@ -84,7 +89,7 @@ struct CameraView: View {
     }
     
     func takePicture() {
-        viewModel.process(intent: .takePicture)
+        viewModel.process(intent: .pressedButton)
         withAnimation {
             circleColor = .white
         }

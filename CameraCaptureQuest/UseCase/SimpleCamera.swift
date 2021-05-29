@@ -18,9 +18,17 @@ class SimpleCameraModel: ObservableObject {
         intents
         .sink { intent in
             switch intent {
-            case .takePicture:
-                self.cameraService.capturePhoto()
-                self.modelState = .takingPicture
+            case .pressedButton:
+                switch self.modelState {
+                case .ready:
+                    self.cameraService.capturePhoto()
+                    self.modelState = .takingPicture
+                case .resultReturned(_, _):
+                    self.modelState = .ready
+                default:
+                    break
+                }
+                
             }
         }.store(in: &bag)
         
@@ -31,8 +39,22 @@ class SimpleCameraModel: ObservableObject {
 //                self.modelState = .resultReturned() TODO error
                 return
             }
+            self.mlService.processImage(image: image)
             self.modelState = .processingPicture(image)
         }.store(in: &bag)
+        
+        mlService.$output.sink { result in
+            switch result {
+            case .error:
+                print("there was an error")
+            case .nothing:
+                break
+            case .sucess(let results):
+                print("\(results)")
+                self.modelState = .resultReturned(self.cameraService.photo!.image!, results.first!)
+            }
+        }.store(in: &bag)
+
 
         
         modelState = .ready
