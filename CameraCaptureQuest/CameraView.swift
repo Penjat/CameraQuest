@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CameraView: View {
+    @State var circleColor: Color = Color.purple
     var body: some View {
         VStack {
             HStack {
@@ -8,24 +9,30 @@ struct CameraView: View {
                 Text("B").font(.bold(.title)())
             }
                 camera.frame(height: UIScreen.main.bounds.width)
-            
-            takePictureButton
             Spacer()
+            takePictureButton.onTapGesture {
+                takePicture()
+            }
         }
     }
     
     var takePictureButton: some View {
         ZStack {
-            Rectangle().fill(Color.blue).cornerRadius(12).padding(40)
-            Text("Capture").font(.bold(.title)()).foregroundColor(.white)
-        }
+            Rectangle()
+                .fill(Color.blue)
+                .cornerRadius(12)
+                .padding(40)
+                .shadow(radius: 10)
+            Text(buttonText)
+                .font(.bold(.title)())
+                .foregroundColor(.white)
+        }.frame(maxHeight: 250)
     }
     
     var camera: some View {
         ZStack {
-            
             Circle()
-                .fill(Color.yellow).shadow(radius: 40)
+                .fill(circleColor).shadow(radius: 40)
             Circle()
                 .stroke(Color.blue, lineWidth: 8)
             VStack {
@@ -36,11 +43,27 @@ struct CameraView: View {
     }
     
     var resultText: some View {
-        Text("Toy Poddle")
+        Text(responseText)
             .foregroundColor(.pink)
             .offset(x: 0, y: 40)
             .font(.bold(.system(size: 50))())
             .shadow(color: .white, radius: 4)
+    }
+    
+    var responseText: String {
+        return ""
+    }
+    
+    var buttonText: String {
+        return "Cature".uppercased()
+    }
+    
+    func takePicture() {
+        print("taking picture")
+        withAnimation {
+            circleColor = .white
+        }
+        circleColor = .purple
     }
 }
 
