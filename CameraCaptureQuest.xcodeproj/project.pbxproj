@@ -24,6 +24,7 @@
 		0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C7266209DB00C1C1E3 /* CameraService+Extensions.swift */; };
 		0B8440D626620E6F00C1C1E3 /* SimpleCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */; };
 		0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440D72662115800C1C1E3 /* GameInteractor.swift */; };
+		0B8440DD26629CB900C1C1E3 /* SimpleCameraIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		0B8440C7266209DB00C1C1E3 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
 		0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCamera.swift; sourceTree = "<group>"; };
 		0B8440D72662115800C1C1E3 /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCameraIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */,
+				0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				0B8440C9266209DB00C1C1E3 /* CameraPreview.swift in Sources */,
 				0B8440C8266209DB00C1C1E3 /* ImageResizer.swift in Sources */,
+				0B8440DD26629CB900C1C1E3 /* SimpleCameraIO.swift in Sources */,
 				0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */,
 				0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */,
 				0B8440BF2661FB7600C1C1E3 /* CameraView.swift in Sources */,

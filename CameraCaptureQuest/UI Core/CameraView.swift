@@ -10,14 +10,13 @@ struct CameraView: View {
                 Text("Starts with").font(.callout)
                 Text("B").font(.bold(.title)())
             }
-                camera//.frame(height: UIScreen.main.bounds.width)
+            camera//.frame(height: UIScreen.main.bounds.width)
             Spacer()
             takePictureButton.onTapGesture {
                 takePicture()
             }
         }.onAppear {
-            cameraService.checkForPermissions()
-            cameraService.configure()
+            
         }
     }
     
@@ -36,7 +35,7 @@ struct CameraView: View {
     
     var camera: some View {
         ZStack {
-            CameraPreview(session: cameraService.session)
+            cameraImage
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width)
                 .mask(Circle().padding())
@@ -45,6 +44,15 @@ struct CameraView: View {
             VStack {
                 resultText.padding()
             }
+        }
+    }
+    
+    var cameraImage: some View {
+        switch viewModel.modelState {
+        case .processingPicture(let image):
+            return AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill))
+        default:
+            return AnyView(CameraPreview(session: viewModel.session))
         }
     }
     
@@ -61,11 +69,22 @@ struct CameraView: View {
     }
     
     var buttonText: String {
-        return "Cature".uppercased()
+        switch viewModel.modelState {
+        case .loading:
+            return "loading..."
+        case .processingPicture:
+            return "processing"
+        case .ready:
+            return "capture"
+        case .takingPicture:
+            return "taking picture"
+        case .resultReturned:
+            return "again?"
+        }
     }
     
     func takePicture() {
-        print("taking picture")
+        viewModel.process(intent: .takePicture)
         withAnimation {
             circleColor = .white
         }
