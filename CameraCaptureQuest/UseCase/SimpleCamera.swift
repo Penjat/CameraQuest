@@ -51,12 +51,11 @@ class SimpleCameraModel: ObservableObject {
                 break
             case .sucess(let results):
                 print("\(results)")
-                self.modelState = .resultReturned(self.cameraService.photo!.image!, results.first!)
+                let scanedResult = ScanResult(identifications: [Indentification(label: "toy poodle", certainty: 0.99)])
+                self.modelState = .resultReturned(self.cameraService.photo!.image!, scanedResult)
             }
         }.store(in: &bag)
 
-
-        
         modelState = .ready
     }
     
@@ -72,5 +71,5 @@ enum SimpleCameraState {
     case ready
     case takingPicture
     case processingPicture(UIImage)
-    case resultReturned(UIImage, String)
+    case resultReturned(UIImage, ScanResult)
 }

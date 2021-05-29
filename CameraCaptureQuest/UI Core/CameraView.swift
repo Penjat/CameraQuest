@@ -10,7 +10,7 @@ struct CameraView: View {
                 Text("Starts with").font(.callout)
                 Text("B").font(.bold(.title)())
             }
-            camera//.frame(height: UIScreen.main.bounds.width)
+            camera
             Spacer()
             takePictureButton.onTapGesture {
                 takePicture()
@@ -41,9 +41,9 @@ struct CameraView: View {
                 .mask(Circle().padding())
             Circle()
                 .stroke(circleColor, lineWidth: 12)
-            VStack {
-                resultText.padding()
-            }
+            
+            resultText.padding()
+            
         }
     }
     
@@ -57,17 +57,39 @@ struct CameraView: View {
     }
     
     var resultText: some View {
-        Text(responseText)
-            .foregroundColor(.pink)
-            .offset(x: 0, y: 40)
-            .font(.bold(.system(size: 50))())
-            .shadow(color: .white, radius: 4)
+        VStack {
+            Text(responseText)
+                .id(responseText)
+                .transition(.opacity.animation(.easeIn).combined(with: .move(edge: .bottom)))
+                .animation(.easeIn)
+                .foregroundColor(.pink)
+                .offset(x: 0, y: 40)
+                .font(.bold(.system(size: 50))())
+                .shadow(color: .white, radius: 4)
+            Text(certaintayText)
+                .id(certaintayText)
+                .transition(.opacity.animation(.easeIn.delay(1)).combined(with: .move(edge: .bottom)))
+                .animation(Animation.easeIn.delay(1))
+                .foregroundColor(.black)
+                .offset(x: 0, y: 40)
+                .font(.system(size: 20))
+                .shadow(color: .white, radius: 4)
+        }
     }
     
     var responseText: String {
         switch viewModel.modelState {
-        case .resultReturned(_, let resultText):
-            return resultText
+        case .resultReturned(_, let result):
+            return result.identifications.first?.label ?? "???"
+        default:
+            return ""
+        }
+    }
+    
+    var certaintayText: String {
+        switch viewModel.modelState {
+        case .resultReturned(_, let result):
+            return "\(result.identifications.first?.label)"
         default:
             return ""
         }
