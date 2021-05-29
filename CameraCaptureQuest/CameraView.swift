@@ -4,8 +4,8 @@ struct CameraView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Starts with").font(.title3)
-                Text("B").font(.title)
+                Text("Starts with").font(.callout)
+                Text("B").font(.bold(.title)())
             }
                 camera.frame(height: UIScreen.main.bounds.width)
             
@@ -16,8 +16,8 @@ struct CameraView: View {
     
     var takePictureButton: some View {
         ZStack {
-            Rectangle().fill(Color.purple).padding(40)
-            Text("Capture").font(.title).foregroundColor(.white)
+            Rectangle().fill(Color.blue).cornerRadius(12).padding(40)
+            Text("Capture").font(.bold(.title)()).foregroundColor(.white)
         }
     }
     
@@ -29,7 +29,6 @@ struct CameraView: View {
             Circle()
                 .stroke(Color.blue, lineWidth: 8)
             VStack {
-                Spacer()
                 resultText.padding()
             }
         }
@@ -37,7 +36,11 @@ struct CameraView: View {
     }
     
     var resultText: some View {
-        Text("Toy Poddle").font(.bold(.largeTitle)()).shadow(radius: 4)
+        Text("Toy Poddle")
+            .foregroundColor(.pink)
+            .offset(x: 0, y: 40)
+            .font(.bold(.system(size: 50))())
+            .shadow(color: .white, radius: 4)
     }
 }
 
