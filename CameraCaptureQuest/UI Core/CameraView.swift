@@ -3,6 +3,7 @@ import SwiftUI
 struct CameraView: View {
     @EnvironmentObject var viewModel: SimpleCameraModel
     @State var circleColor: Color = Color.blue
+    @State var certainty: Double = 0.0
     
     var body: some View {
         VStack {
@@ -15,8 +16,6 @@ struct CameraView: View {
             takePictureButton.onTapGesture {
                 takePicture()
             }
-        }.onAppear {
-            
         }
     }
     
@@ -89,7 +88,7 @@ struct CameraView: View {
     var certaintayText: String {
         switch viewModel.modelState {
         case .resultReturned(_, let result):
-            return "\(result.identifications.first?.label)"
+            return String(format: "%.0f", (result.identifications.first?.certainty ?? 0)) + "%"
         default:
             return ""
         }

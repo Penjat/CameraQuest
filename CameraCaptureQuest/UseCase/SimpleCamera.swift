@@ -51,7 +51,15 @@ class SimpleCameraModel: ObservableObject {
                 break
             case .sucess(let results):
                 print("\(results)")
-                let scanedResult = ScanResult(identifications: [Indentification(label: "toy poodle", certainty: 0.99)])
+                
+                let scanedResult = ScanResult(identifications: results.map{ resultString in
+                    let label = String(resultString.dropFirst(9))
+                    
+                    let numbers = resultString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                    
+                    let confidence = Double(numbers) ?? 0.0
+                    return Indentification(label: label, certainty: confidence)
+                })
                 self.modelState = .resultReturned(self.cameraService.photo!.image!, scanedResult)
             }
         }.store(in: &bag)
