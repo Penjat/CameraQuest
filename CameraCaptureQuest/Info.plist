@@ -14,6 +14,10 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take pictures of things around you to complete quests in the game</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pictures are scanned by ML</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

@@ -14,6 +14,16 @@
 		0B8440A62661FB2B00C1C1E3 /* CameraCaptureQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440A52661FB2B00C1C1E3 /* CameraCaptureQuestTests.swift */; };
 		0B8440B12661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440B02661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift */; };
 		0B8440BF2661FB7600C1C1E3 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440BE2661FB7600C1C1E3 /* CameraView.swift */; };
+		0B8440C8266209DB00C1C1E3 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C0266209DA00C1C1E3 /* ImageResizer.swift */; };
+		0B8440C9266209DB00C1C1E3 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C1266209DA00C1C1E3 /* CameraPreview.swift */; };
+		0B8440CA266209DB00C1C1E3 /* MLScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C2266209DA00C1C1E3 /* MLScanner.swift */; };
+		0B8440CB266209DB00C1C1E3 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C3266209DA00C1C1E3 /* CameraService.swift */; };
+		0B8440CC266209DB00C1C1E3 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C4266209DA00C1C1E3 /* PhotoCaptureProcessor.swift */; };
+		0B8440CD266209DB00C1C1E3 /* CameraService+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C5266209DA00C1C1E3 /* CameraService+Enums.swift */; };
+		0B8440CE266209DB00C1C1E3 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C6266209DB00C1C1E3 /* MobileNet.mlmodel */; };
+		0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C7266209DB00C1C1E3 /* CameraService+Extensions.swift */; };
+		0B8440D626620E6F00C1C1E3 /* SimpleCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */; };
+		0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440D72662115800C1C1E3 /* GameInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,16 @@
 		0B8440B02661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureQuestUITests.swift; sourceTree = "<group>"; };
 		0B8440B22661FB2B00C1C1E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8440BE2661FB7600C1C1E3 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0B8440C0266209DA00C1C1E3 /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
+		0B8440C1266209DA00C1C1E3 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		0B8440C2266209DA00C1C1E3 /* MLScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLScanner.swift; sourceTree = "<group>"; };
+		0B8440C3266209DA00C1C1E3 /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		0B8440C4266209DA00C1C1E3 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
+		0B8440C5266209DA00C1C1E3 /* CameraService+Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CameraService+Enums.swift"; sourceTree = "<group>"; };
+		0B8440C6266209DB00C1C1E3 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		0B8440C7266209DB00C1C1E3 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
+		0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCamera.swift; sourceTree = "<group>"; };
+		0B8440D72662115800C1C1E3 /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +117,12 @@
 		0B8440922661FB2800C1C1E3 /* CameraCaptureQuest */ = {
 			isa = PBXGroup;
 			children = (
-				0B8440932661FB2800C1C1E3 /* CameraCaptureQuestApp.swift */,
-				0B8440952661FB2800C1C1E3 /* ContentView.swift */,
-				0B8440BE2661FB7600C1C1E3 /* CameraView.swift */,
+				0B8440DA2662117000C1C1E3 /* App */,
+				0B8440D92662116300C1C1E3 /* Interactor */,
+				0B8440D426620E4B00C1C1E3 /* UseCase */,
+				0B8440DB266211B200C1C1E3 /* UI Core */,
+				0B8440D026620B3600C1C1E3 /* CameraService */,
+				0B8440D326620B7500C1C1E3 /* ML Service */,
 				0B8440972661FB2B00C1C1E3 /* Assets.xcassets */,
 				0B84409C2661FB2B00C1C1E3 /* Info.plist */,
 				0B8440992661FB2B00C1C1E3 /* Preview Content */,
@@ -131,6 +154,77 @@
 				0B8440B22661FB2B00C1C1E3 /* Info.plist */,
 			);
 			path = CameraCaptureQuestUITests;
+			sourceTree = "<group>";
+		};
+		0B8440D026620B3600C1C1E3 /* CameraService */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440D226620B5000C1C1E3 /* Views */,
+				0B8440D126620B4600C1C1E3 /* Service */,
+			);
+			path = CameraService;
+			sourceTree = "<group>";
+		};
+		0B8440D126620B4600C1C1E3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440C4266209DA00C1C1E3 /* PhotoCaptureProcessor.swift */,
+				0B8440C3266209DA00C1C1E3 /* CameraService.swift */,
+				0B8440C5266209DA00C1C1E3 /* CameraService+Enums.swift */,
+				0B8440C7266209DB00C1C1E3 /* CameraService+Extensions.swift */,
+				0B8440C0266209DA00C1C1E3 /* ImageResizer.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0B8440D226620B5000C1C1E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440C1266209DA00C1C1E3 /* CameraPreview.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B8440D326620B7500C1C1E3 /* ML Service */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440C6266209DB00C1C1E3 /* MobileNet.mlmodel */,
+				0B8440C2266209DA00C1C1E3 /* MLScanner.swift */,
+			);
+			path = "ML Service";
+			sourceTree = "<group>";
+		};
+		0B8440D426620E4B00C1C1E3 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		0B8440D92662116300C1C1E3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440D72662115800C1C1E3 /* GameInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0B8440DA2662117000C1C1E3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440952661FB2800C1C1E3 /* ContentView.swift */,
+				0B8440932661FB2800C1C1E3 /* CameraCaptureQuestApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0B8440DB266211B200C1C1E3 /* UI Core */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440BE2661FB7600C1C1E3 /* CameraView.swift */,
+			);
+			path = "UI Core";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +356,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8440C9266209DB00C1C1E3 /* CameraPreview.swift in Sources */,
+				0B8440C8266209DB00C1C1E3 /* ImageResizer.swift in Sources */,
+				0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */,
+				0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */,
 				0B8440BF2661FB7600C1C1E3 /* CameraView.swift in Sources */,
+				0B8440D626620E6F00C1C1E3 /* SimpleCamera.swift in Sources */,
+				0B8440CA266209DB00C1C1E3 /* MLScanner.swift in Sources */,
+				0B8440CC266209DB00C1C1E3 /* PhotoCaptureProcessor.swift in Sources */,
 				0B8440962661FB2800C1C1E3 /* ContentView.swift in Sources */,
+				0B8440CE266209DB00C1C1E3 /* MobileNet.mlmodel in Sources */,
 				0B8440942661FB2800C1C1E3 /* CameraCaptureQuestApp.swift in Sources */,
+				0B8440CB266209DB00C1C1E3 /* CameraService.swift in Sources */,
+				0B8440CD266209DB00C1C1E3 /* CameraService+Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
