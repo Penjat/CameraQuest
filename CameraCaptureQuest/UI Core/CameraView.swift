@@ -4,6 +4,7 @@ struct CameraView: View {
     @EnvironmentObject var viewModel: SimpleCameraModel
     @State var circleColor: Color = Color.blue
     @State var certainty: Double = 0.0
+    @State var shutterClosed = false
     
     var body: some View {
         VStack {
@@ -16,13 +17,28 @@ struct CameraView: View {
             takePictureButton.onTapGesture {
                 takePicture()
             }
-        }
+        }.onReceive(viewModel.$modelState, perform: { modelState in
+            switch modelState {
+            case .takingPicture:
+                withAnimation {
+                    shutterClosed = true
+                    circleColor = .purple
+                }
+                break
+            default:
+                withAnimation {
+                    shutterClosed = false
+                    circleColor = .blue
+                }
+                break
+            }
+        })
     }
     
     var takePictureButton: some View {
         ZStack {
             Rectangle()
-                .fill(Color.blue)
+                .fill(circleColor)
                 .cornerRadius(12)
                 .padding(40)
                 .shadow(radius: 10)
@@ -38,8 +54,8 @@ struct CameraView: View {
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width)
                 .mask(Circle().padding())
-            Circle()
-                .stroke(circleColor, lineWidth: 12)
+            Circle()//.border(Color.pink, width: 20)
+                .stroke(circleColor, lineWidth: shutterClosed ? 600 : 20).mask(Circle())
             
             resultText.padding()
             
@@ -111,10 +127,6 @@ struct CameraView: View {
     
     func takePicture() {
         viewModel.process(intent: .pressedButton)
-        withAnimation {
-            circleColor = .white
-        }
-        circleColor = .blue
     }
 }
 
