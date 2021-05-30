@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CameraView: View {
+struct SimpleCameraView: View {
     @EnvironmentObject var viewModel: SimpleCameraModel
     @State var circleColor: Color = Color.blue
     @State var certainty: Double = 0.0
@@ -129,8 +129,8 @@ struct CameraView: View {
     }
 }
 
-struct CameraView_Previews: PreviewProvider {
+struct SimpleCameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        SimpleCameraView()
     }
 }

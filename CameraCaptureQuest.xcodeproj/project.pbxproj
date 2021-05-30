@@ -13,7 +13,7 @@
 		0B84409B2661FB2B00C1C1E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B84409A2661FB2B00C1C1E3 /* Preview Assets.xcassets */; };
 		0B8440A62661FB2B00C1C1E3 /* CameraCaptureQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440A52661FB2B00C1C1E3 /* CameraCaptureQuestTests.swift */; };
 		0B8440B12661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440B02661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift */; };
-		0B8440BF2661FB7600C1C1E3 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440BE2661FB7600C1C1E3 /* CameraView.swift */; };
+		0B8440BF2661FB7600C1C1E3 /* SimpleCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440BE2661FB7600C1C1E3 /* SimpleCameraView.swift */; };
 		0B8440C8266209DB00C1C1E3 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C0266209DA00C1C1E3 /* ImageResizer.swift */; };
 		0B8440C9266209DB00C1C1E3 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C1266209DA00C1C1E3 /* CameraPreview.swift */; };
 		0B8440CA266209DB00C1C1E3 /* MLScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440C2266209DA00C1C1E3 /* MLScanner.swift */; };
@@ -60,7 +60,7 @@
 		0B8440AC2661FB2B00C1C1E3 /* CameraCaptureQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraCaptureQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8440B02661FB2B00C1C1E3 /* CameraCaptureQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureQuestUITests.swift; sourceTree = "<group>"; };
 		0B8440B22661FB2B00C1C1E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B8440BE2661FB7600C1C1E3 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0B8440BE2661FB7600C1C1E3 /* SimpleCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCameraView.swift; sourceTree = "<group>"; };
 		0B8440C0266209DA00C1C1E3 /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 		0B8440C1266209DA00C1C1E3 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		0B8440C2266209DA00C1C1E3 /* MLScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLScanner.swift; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		0B8440D426620E4B00C1C1E3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */,
-				0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */,
+				0B8440E626634A5300C1C1E3 /* Title */,
+				0B8440E526634A4600C1C1E3 /* Simple Camera */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -233,7 +233,6 @@
 		0B8440DB266211B200C1C1E3 /* UI Core */ = {
 			isa = PBXGroup;
 			children = (
-				0B8440BE2661FB7600C1C1E3 /* CameraView.swift */,
 				0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */,
 			);
 			path = "UI Core";
@@ -245,6 +244,23 @@
 				0B8440DF2662BCA700C1C1E3 /* SpeechService.swift */,
 			);
 			path = SpeechService;
+			sourceTree = "<group>";
+		};
+		0B8440E526634A4600C1C1E3 /* Simple Camera */ = {
+			isa = PBXGroup;
+			children = (
+				0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */,
+				0B8440D526620E6F00C1C1E3 /* SimpleCamera.swift */,
+				0B8440BE2661FB7600C1C1E3 /* SimpleCameraView.swift */,
+			);
+			path = "Simple Camera";
+			sourceTree = "<group>";
+		};
+		0B8440E626634A5300C1C1E3 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +399,7 @@
 				0B8440DD26629CB900C1C1E3 /* SimpleCameraIO.swift in Sources */,
 				0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */,
 				0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */,
-				0B8440BF2661FB7600C1C1E3 /* CameraView.swift in Sources */,
+				0B8440BF2661FB7600C1C1E3 /* SimpleCameraView.swift in Sources */,
 				0B8440D626620E6F00C1C1E3 /* SimpleCamera.swift in Sources */,
 				0B8440CA266209DB00C1C1E3 /* MLScanner.swift in Sources */,
 				0B8440CC266209DB00C1C1E3 /* PhotoCaptureProcessor.swift in Sources */,
