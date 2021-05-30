@@ -8,17 +8,14 @@ struct CameraView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Starts with").font(.callout)
-                Text("B").font(.bold(.title)())
-            }
+            Spacer()
             camera
             Spacer()
             takePictureButton.onTapGesture {
                 takePicture()
             }
-        }.onReceive(viewModel.$modelState, perform: { modelState in
-            switch modelState {
+        }.onReceive(viewModel.$gameState, perform: { gameState in
+            switch gameState {
             case .takingPicture:
                 withAnimation {
                     shutterClosed = true
@@ -50,7 +47,7 @@ struct CameraView: View {
     
     var camera: some View {
         ZStack {
-            CircularCameraView(cameraState: .ready(viewModel.session))
+            CircularCameraView(cameraState: cameraState)
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width)
                 //.mask(Circle().padding())
@@ -84,7 +81,7 @@ struct CameraView: View {
     }
     
     var responseText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .resultReturned(_, let result):
             return result.identifications.first?.label ?? "???"
         default:
@@ -93,7 +90,7 @@ struct CameraView: View {
     }
     
     var certaintayText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .resultReturned(_, let result):
             return String(format: "%.0f", (result.identifications.first?.certainty ?? 0)) + "%"
         default:
@@ -102,7 +99,7 @@ struct CameraView: View {
     }
     
     var buttonText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .loading:
             return "loading..."
         case .processingPicture:
@@ -113,6 +110,17 @@ struct CameraView: View {
             return "taking picture"
         case .resultReturned:
             return "again?"
+        }
+    }
+    
+    var cameraState: CameraState {
+        switch viewModel.gameState {
+        case .loading:
+            return .loading
+        case .processingPicture(let image), .resultReturned(let image, _):
+            return .success(image)
+        case .takingPicture, .ready:
+            return .ready(viewModel.session)
         }
     }
     
