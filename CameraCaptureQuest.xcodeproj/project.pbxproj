@@ -28,6 +28,7 @@
 		0B8440E02662BCA700C1C1E3 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440DF2662BCA700C1C1E3 /* SpeechService.swift */; };
 		0B8440E226633E9200C1C1E3 /* CircularCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */; };
 		0B8440E4266340D600C1C1E3 /* CameraState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440E3266340D600C1C1E3 /* CameraState.swift */; };
+		0B8440E826634C1300C1C1E3 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440E726634C1300C1C1E3 /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		0B8440DF2662BCA700C1C1E3 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCameraView.swift; sourceTree = "<group>"; };
 		0B8440E3266340D600C1C1E3 /* CameraState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraState.swift; sourceTree = "<group>"; };
+		0B8440E726634C1300C1C1E3 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		0B8440E626634A5300C1C1E3 /* Title */ = {
 			isa = PBXGroup;
 			children = (
+				0B8440E726634C1300C1C1E3 /* TitleView.swift */,
 			);
 			path = Title;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				0B8440E4266340D600C1C1E3 /* CameraState.swift in Sources */,
 				0B8440E02662BCA700C1C1E3 /* SpeechService.swift in Sources */,
 				0B8440DD26629CB900C1C1E3 /* SimpleCameraIO.swift in Sources */,
+				0B8440E826634C1300C1C1E3 /* TitleView.swift in Sources */,
 				0B8440CF266209DB00C1C1E3 /* CameraService+Extensions.swift in Sources */,
 				0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */,
 				0B8440BF2661FB7600C1C1E3 /* SimpleCameraView.swift in Sources */,

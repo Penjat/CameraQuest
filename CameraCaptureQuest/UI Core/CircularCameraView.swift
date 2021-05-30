@@ -3,13 +3,20 @@ import SwiftUI
 struct CircularCameraView: View {
     let cameraState: CameraState
     var body: some View {
-        switch cameraState {
-        case .ready(let session):
-            return AnyView(CameraPreview(session: session).mask(Circle()))
-        case .loading:
-            return AnyView(Circle())
-        case .success(let image):
-            return AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill).mask(Circle()))
+        GeometryReader { geometry in
+            switch cameraState {
+            case .ready(let session):
+                AnyView(CameraPreview(session: session).scaledToFill()
+                            .frame(width: geometry.size.width, height: geometry.size.width, alignment: .center)
+                            .clipped()
+                            .mask(Circle()))
+            case .loading:
+                AnyView(Circle())
+            case .success(let image):
+                AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill)
+                            .frame(width: geometry.size.width, height: geometry.size.width, alignment: .center)
+                            .clipped().mask(Circle()))
+            }
         }
     }
 }
