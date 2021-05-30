@@ -26,6 +26,7 @@
 		0B8440D82662115800C1C1E3 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440D72662115800C1C1E3 /* GameInteractor.swift */; };
 		0B8440DD26629CB900C1C1E3 /* SimpleCameraIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */; };
 		0B8440E02662BCA700C1C1E3 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440DF2662BCA700C1C1E3 /* SpeechService.swift */; };
+		0B8440E226633E9200C1C1E3 /* CircularCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		0B8440D72662115800C1C1E3 /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 		0B8440DC26629CB900C1C1E3 /* SimpleCameraIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCameraIO.swift; sourceTree = "<group>"; };
 		0B8440DF2662BCA700C1C1E3 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8440BE2661FB7600C1C1E3 /* CameraView.swift */,
+				0B8440E126633E9200C1C1E3 /* CircularCameraView.swift */,
 			);
 			path = "UI Core";
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				0B8440CC266209DB00C1C1E3 /* PhotoCaptureProcessor.swift in Sources */,
 				0B8440962661FB2800C1C1E3 /* ContentView.swift in Sources */,
 				0B8440CE266209DB00C1C1E3 /* MobileNet.mlmodel in Sources */,
+				0B8440E226633E9200C1C1E3 /* CircularCameraView.swift in Sources */,
 				0B8440942661FB2800C1C1E3 /* CameraCaptureQuestApp.swift in Sources */,
 				0B8440CB266209DB00C1C1E3 /* CameraService.swift in Sources */,
 				0B8440CD266209DB00C1C1E3 /* CameraService+Enums.swift in Sources */,

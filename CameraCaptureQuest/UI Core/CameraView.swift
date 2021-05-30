@@ -50,10 +50,10 @@ struct CameraView: View {
     
     var camera: some View {
         ZStack {
-            cameraImage
+            CircularCameraView()
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width)
-                .mask(Circle().padding())
+                //.mask(Circle().padding())
             Circle()//.border(Color.pink, width: 20)
                 .stroke(circleColor, lineWidth: shutterClosed ? 600 : 20).mask(Circle())
             
