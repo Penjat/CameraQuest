@@ -50,7 +50,7 @@ struct CameraView: View {
     
     var camera: some View {
         ZStack {
-            CircularCameraView()
+            CircularCameraView(cameraState: .ready(viewModel.session))
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width)
                 //.mask(Circle().padding())
@@ -59,15 +59,6 @@ struct CameraView: View {
             
             resultText.padding()
             
-        }
-    }
-    
-    var cameraImage: some View {
-        switch viewModel.modelState {
-        case .processingPicture(let image), .resultReturned(let image, _):
-            return AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill))
-        default:
-            return AnyView(CameraPreview(session: viewModel.session))
         }
     }
     
