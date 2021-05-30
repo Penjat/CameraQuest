@@ -2,7 +2,7 @@ import Combine
 import AVKit
 
 class SimpleCameraModel: ObservableObject {
-    @Published var modelState: SimpleCameraState = .loading
+    @Published var gameState: SimpleCameraState = .loading
     
     private let cameraService = CameraService()
     private let mlService = ImageScanner()
@@ -19,16 +19,15 @@ class SimpleCameraModel: ObservableObject {
         .sink { intent in
             switch intent {
             case .pressedButton:
-                switch self.modelState {
+                switch self.gameState {
                 case .ready:
                     self.cameraService.capturePhoto()
-                    self.modelState = .takingPicture
+                    self.gameState = .takingPicture
                 case .resultReturned(_, _):
-                    self.modelState = .ready
+                    self.gameState = .ready
                 default:
                     break
                 }
-                
             }
         }.store(in: &bag)
         
@@ -36,11 +35,11 @@ class SimpleCameraModel: ObservableObject {
             
         } receiveValue: { photo in
             guard let image = photo?.image else {
-//                self.modelState = .resultReturned() TODO error
+//                self.gameState = .resultReturned() TODO error
                 return
             }
             self.mlService.processImage(image: image)
-            self.modelState = .processingPicture(image)
+            self.gameState = .processingPicture(image)
         }.store(in: &bag)
         
         mlService.$output.sink { result in
@@ -60,14 +59,14 @@ class SimpleCameraModel: ObservableObject {
                     let confidence = Double(numbers) ?? 0.0
                     return Indentification(label: label, certainty: confidence)
                 })
-                self.modelState = .resultReturned(self.cameraService.photo!.image!, scanedResult)
+                self.gameState = .resultReturned(self.cameraService.photo!.image!, scanedResult)
                 if let mainLabel = scanedResult.identifications.first?.label {
                     SpeechService().speakText(mainLabel)
                 }
             }
         }.store(in: &bag)
 
-        modelState = .ready
+        gameState = .ready
     }
     
     private let intents = PassthroughSubject<SimpleCameraViewIntent, Never>()

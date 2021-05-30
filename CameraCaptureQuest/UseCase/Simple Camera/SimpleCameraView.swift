@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CameraView: View {
+struct SimpleCameraView: View {
     @EnvironmentObject var viewModel: SimpleCameraModel
     @State var circleColor: Color = Color.blue
     @State var certainty: Double = 0.0
@@ -8,17 +8,14 @@ struct CameraView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Starts with").font(.callout)
-                Text("B").font(.bold(.title)())
-            }
+            Spacer()
             camera
             Spacer()
             takePictureButton.onTapGesture {
                 takePicture()
             }
-        }.onReceive(viewModel.$modelState, perform: { modelState in
-            switch modelState {
+        }.onReceive(viewModel.$gameState, perform: { gameState in
+            switch gameState {
             case .takingPicture:
                 withAnimation {
                     shutterClosed = true
@@ -50,24 +47,14 @@ struct CameraView: View {
     
     var camera: some View {
         ZStack {
-            cameraImage
-                .ignoresSafeArea()
-                .frame(width: UIScreen.main.bounds.width)
-                .mask(Circle().padding())
+            CircularCameraView(cameraState: cameraState)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                //.mask(Circle().padding())
             Circle()//.border(Color.pink, width: 20)
                 .stroke(circleColor, lineWidth: shutterClosed ? 600 : 20).mask(Circle())
             
             resultText.padding()
             
-        }
-    }
-    
-    var cameraImage: some View {
-        switch viewModel.modelState {
-        case .processingPicture(let image), .resultReturned(let image, _):
-            return AnyView(Image(uiImage: image).resizable().aspectRatio(contentMode: .fill))
-        default:
-            return AnyView(CameraPreview(session: viewModel.session))
         }
     }
     
@@ -93,7 +80,7 @@ struct CameraView: View {
     }
     
     var responseText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .resultReturned(_, let result):
             return result.identifications.first?.label ?? "???"
         default:
@@ -102,7 +89,7 @@ struct CameraView: View {
     }
     
     var certaintayText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .resultReturned(_, let result):
             return String(format: "%.0f", (result.identifications.first?.certainty ?? 0)) + "%"
         default:
@@ -111,7 +98,7 @@ struct CameraView: View {
     }
     
     var buttonText: String {
-        switch viewModel.modelState {
+        switch viewModel.gameState {
         case .loading:
             return "loading..."
         case .processingPicture:
@@ -125,13 +112,24 @@ struct CameraView: View {
         }
     }
     
+    var cameraState: CameraState {
+        switch viewModel.gameState {
+        case .loading:
+            return .loading
+        case .processingPicture(let image), .resultReturned(let image, _):
+            return .success(image)
+        case .takingPicture, .ready:
+            return .ready(viewModel.session)
+        }
+    }
+    
     func takePicture() {
         viewModel.process(intent: .pressedButton)
     }
 }
 
-struct CameraView_Previews: PreviewProvider {
+struct SimpleCameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        SimpleCameraView()
     }
 }
